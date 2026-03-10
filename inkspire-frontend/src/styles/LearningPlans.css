@@ -1,0 +1,248 @@
+.learning-plans-root {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding-bottom: 3rem;
+}
+
+.hero-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-bottom: 80px;
+}
+
+.page-title {
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.8rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-subtitle {
+  font-size: 1.3rem !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+}
+
+.cards-container {
+  padding: 0 1.5rem 3rem 1.5rem !important;
+  position: relative;
+  z-index: 2;
+  margin-top: -80px !important;
+  width: 100%;
+  max-width: 1200px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plan-card {
+  height: 100%;
+  min-height: 320px;
+  border-radius: 20px !important;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-content {
+  padding: 2rem 1.5rem !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.plan-card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+.card-icon {
+  font-size: 2.5rem !important;
+  color: white;
+}
+
+/* Progress Card Styles */
+.progress-card .icon-wrapper {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+}
+
+.progress-card .action-button {
+  background: linear-gradient(135deg, #2196f3, #1976d2) !important;
+}
+
+/* Share Card Styles */
+.share-card .icon-wrapper {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.share-card .action-button {
+  background: linear-gradient(135deg, #ff9800, #f57c00) !important;
+}
+
+/* Reminder Card Styles */
+.reminder-card .icon-wrapper {
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+}
+
+.reminder-card .action-button {
+  background: linear-gradient(135deg, #4caf50, #388e3c) !important;
+}
+
+/* Followed Card Styles */
+.followed-card .icon-wrapper {
+  background: linear-gradient(135deg, #7c3aed, #2dd4bf);
+}
+
+.followed-card .action-button {
+  background: linear-gradient(135deg, #7c3aed, #2dd4bf) !important;
+}
+
+.card-title {
+  font-weight: 600 !important;
+  margin-bottom: 0.8rem !important;
+  color: #1a237e;
+  font-size: 1.4rem !important;
+}
+
+.card-description {
+  color: #666;
+  margin-bottom: 1.2rem !important;
+  line-height: 1.5 !important;
+  font-size: 0.95rem !important;
+}
+
+.action-button {
+  padding: 8px 20px !important;
+  border-radius: 25px !important;
+  text-transform: none !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: white !important;
+  transition: transform 0.3s ease !important;
+}
+
+.action-button:hover {
+  transform: scale(1.05);
+}
+
+/* Update the Grid container in the component */
+.MuiGrid-root {
+  margin-top: 0 !important;
+  width: 100% !important;
+}
+
+/* Ensure cards are fully visible */
+.MuiGrid-item {
+  padding: 12px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Update responsive styles */
+@media (max-width: 960px) {
+  .hero-banner {
+    height: 300px;
+    margin-bottom: 60px;
+  }
+
+  .cards-container {
+    margin-top: -60px !important;
+    padding: 0 1rem 2.5rem 1rem !important;
+  }
+
+  .plan-card {
+    min-height: 300px;
+  }
+
+  .page-title {
+    font-size: 2.5rem !important;
+  }
+
+  .page-subtitle {
+    font-size: 1.2rem !important;
+  }
+
+  .card-content {
+    padding: 1.8rem 1.2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-banner {
+    height: 250px;
+    margin-bottom: 40px;
+  }
+
+  .cards-container {
+    margin-top: -40px !important;
+    padding: 0 0.8rem 2rem 0.8rem !important;
+  }
+
+  .plan-card {
+    min-height: 280px;
+  }
+
+  .card-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .card-icon {
+    font-size: 2rem !important;
+  }
+
+  .page-title {
+    font-size: 2rem !important;
+  }
+
+  .card-title {
+    font-size: 1.2rem !important;
+  }
+
+  .card-description {
+    font-size: 0.9rem !important;
+  }
+
+  .action-button {
+    padding: 6px 16px !important;
+    font-size: 0.85rem !important;
+  }
+}

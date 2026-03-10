@@ -1,0 +1,87 @@
+1.mkdir ~/socket_practical
+cd ~/socket_practical
+
+2.nano IT22212054_server_v1.c
+
+3. 
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <stdlib.h>
+
+#define PORT 7054  // last 4 digits
+
+int main() {
+    int server_fd, new_socket;
+    struct sockaddr_in address;
+    int addrlen = sizeof(address);
+    char buffer[1024] = {0};
+
+    server_fd = socket(AF_INET, SOCK_STREAM, 0);
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = htons(PORT);
+
+    bind(server_fd, (struct sockaddr *)&address, sizeof(address));
+    listen(server_fd, 5);
+
+    printf("Server listening on port %d...\n", PORT);
+
+    while (1) {
+        new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen);
+        if (fork() == 0) { // child
+            read(new_socket, buffer, 1024);
+            printf("Received from client: %s\n", buffer);
+            send(new_socket, buffer, strlen(buffer), 0);
+            close(new_socket);
+            exit(0);
+        }
+        close(new_socket);
+    }
+}
+
+
+4.nano IT22212054_client_v1.c
+
+5.#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+
+#define PORT 7054  // last 4 digits
+
+int main() {
+    int sock = 0;
+    struct sockaddr_in serv_addr;
+    char *hello = "Hello from IT22212054";
+    char buffer[1024] = {0};
+
+    sock = socket(AF_INET, SOCK_STREAM, 0);
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(PORT);
+    inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr);  // use localhost or server IP
+
+    connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
+    send(sock, hello, strlen(hello), 0);
+    read(sock, buffer, 1024);
+    printf("Server reply: %s\n", buffer);
+
+    close(sock);
+    return 0;
+}
+
+6.gcc IT22212054_server_v1.c -o server
+gcc IT22212054_client_v1.c -o client
+
+7./server
+
+8. cd ~/socket_practical
+   ./client
+
+
+
+
+

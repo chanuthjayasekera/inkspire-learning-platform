@@ -1,0 +1,7 @@
+.MuiAlert-root {
+  margin-bottom: 1rem;
+}
+
+.MuiSnackbar-root {
+  z-index: 1400;
+} 

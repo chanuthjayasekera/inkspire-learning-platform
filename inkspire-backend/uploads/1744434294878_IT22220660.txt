@@ -1,0 +1,169 @@
+-- 1)
+
+-- a)
+ALTER TYPE StockType ADD MEMBER FUNCTION yieldOfStocks RETURN FLOAT CASCADE;
+
+CREATE OR REPLACE TYPE BODY
+  StockType AS
+  MEMBER FUNCTION
+  yieldOfStocks
+  RETURN FLOAT IS
+    BEGIN
+      RETURN ROUND((SELF.DIVIDEND / SELF.CURRENTPRICE) * 100, 2);
+    END yieldOfStocks;
+END;
+/
+
+SELECT s.company, s.yieldOfStocks()
+FROM Stocks s;
+
+-- b)
+ALTER TYPE StockType ADD MEMBER FUNCTION priceInUsd(rate FLOAT) RETURN FLOAT CASCADE;
+
+CREATE OR REPLACE TYPE BODY
+  StockType AS
+  MEMBER FUNCTION
+  yieldOfStocks
+  RETURN FLOAT IS
+    BEGIN
+      RETURN ROUND((SELF.DIVIDEND / SELF.CURRENTPRICE) * 100, 2);
+    END yieldOfStocks;
+  MEMBER FUNCTION
+  priceInUsd(rate FLOAT)
+  RETURN FLOAT IS
+    BEGIN
+      RETURN rate * SELF.CURRENTPRICE;
+    END priceInUsd;
+END;
+/
+
+SELECT s.company, s.priceInUsd(2)
+FROM Stocks s;
+
+-- c)
+ALTER TYPE StockType ADD MEMBER FUNCTION exchangesCount RETURN INTEGER CASCADE;
+
+CREATE OR REPLACE TYPE BODY
+  StockType AS
+  MEMBER FUNCTION
+  yieldOfStocks
+  RETURN FLOAT IS
+    BEGIN
+      RETURN ROUND((SELF.DIVIDEND / SELF.CURRENTPRICE) * 100, 2);
+    END yieldOfStocks;
+  MEMBER FUNCTION
+  priceInUsd(rate FLOAT)
+  RETURN FLOAT IS
+    BEGIN
+      RETURN rate * SELF.CURRENTPRICE;
+    END priceInUsd;
+  MEMBER FUNCTION
+  exchangesCount
+  RETURN INTEGER IS
+    BEGIN
+      RETURN SELF.EXCHANGESTRADED.COUNT;
+    END exchangesCount;
+END;
+/
+  
+SELECT s.company, s.exchangesCount() AS ExchangesCount
+FROM Stocks s
+WHERE s.company = 'BHP';
+
+-- d)
+ALTER TYPE ClientType ADD MEMBER FUNCTION getValueOfSharesByClient RETURN FLOAT CASCADE;
+
+CREATE OR REPLACE TYPE BODY
+  ClientType AS
+  MEMBER FUNCTION
+  getValueOfSharesByClient
+  RETURN FLOAT IS
+   TOTAL FLOAT;
+   BEGIN
+     SELECT SUM(I.QTY * I.PRICE) INTO TOTAL
+     FROM TABLE(SELF.INVESTMENTS) I;
+     
+     RETURN TOTAL;
+   END getValueOfSharesByClient;
+END;
+/
+
+SELECT C.NAME, C.getValueOfSharesByClient()
+FROM Clients C;
+
+-- e)
+ALTER TYPE ClientType ADD MEMBER FUNCTION getTotalEarning RETURN FLOAT CASCADE;
+
+CREATE OR REPLACE TYPE BODY
+  ClientType AS
+  MEMBER FUNCTION
+  getValueOfSharesByClient
+  RETURN FLOAT IS
+   TOTAL FLOAT;
+   BEGIN
+     SELECT SUM(I.QTY * I.PRICE) INTO TOTAL
+     FROM TABLE(SELF.INVESTMENTS) I;
+     
+     RETURN TOTAL;
+   END getValueOfSharesByClient;
+  MEMBER FUNCTION
+  getTotalEarning
+  RETURN FLOAT IS
+   EARNING FLOAT;
+   BEGIN
+     SELECT SUM(I.QTY * (I.COMPANY.CURRENTPRICE - I.PRICE)) INTO EARNING
+     FROM TABLE(SELF.INVESTMENTS) I;
+
+     RETURN EARNING;
+   END getTotalEarning;
+END;
+/
+
+SELECT C.NAME, C.getTotalEarning() 
+FROM Clients C;
+
+
+-- 2)
+
+-- a)
+SELECT s.company, e.COLUMN_VALUE AS EXCHANGES, s.yieldOfStocks() AS YIELD, s.priceInUsd(0.74) AS "PRICE(USD)"
+FROM Stocks s, TABLE(s.exchangestraded) e;
+
+-- b)
+SELECT s.company, s.currentprice, s.exchangesCount()
+FROM Stocks s
+WHERE s.exchangesCount() > 1;
+
+-- c)
+SELECT c.name, i.company.company AS STOCK, i.company.yieldOfStocks() AS YIELD, i.company.currentprice AS PRICE, i.company.eps AS EPS
+FROM Clients c, TABLE(c.INVESTMENTS) i;
+
+-- d)
+SELECT c.name, c.getValueOfSharesByClient() AS TOTALPURCHASEVALUE
+FROM Clients c;
+
+-- e)
+SELECT c.name, c.getTotalEarning() AS "PROFIT/LOSS"
+FROM Clients c;
+
+
+
+-- SHOW ERROS OF TYPE BODY
+SHOW ERRORS TYPE BODY ClientType;
+
+-- GET ALL METHODS OF A TYPE
+SELECT *
+FROM USER_TYPE_METHODS
+WHERE TYPE_NAME = 'STOCKTYPE';
+
+-- GET TYPE BODY
+SELECT TEXT
+FROM USER_SOURCE
+WHERE NAME = 'STOCKTYPE' AND TYPE = 'TYPE BODY'
+ORDER BY LINE;
+
+-- DROP BODY TYPE
+DROP TYPE BODY StockType;
+
+-- DROP FUNCTION
+ALTER TYPE StockType DROP MEMBER FUNCTION exchangesCount(company VARCHAR) RETURN INTEGER CASCADE;

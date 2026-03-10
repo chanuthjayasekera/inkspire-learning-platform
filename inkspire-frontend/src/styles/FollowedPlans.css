@@ -1,0 +1,410 @@
+/* Animations with elegant color adjustments */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 4px rgba(26, 35, 126, 0.4); }
+  50% { text-shadow: 0 0 12px rgba(26, 35, 126, 0.6); }
+  100% { text-shadow: 0 0 4px rgba(26, 35, 126, 0.4); }
+}
+
+/* Main container with refined background */
+.followed-plans-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecef 50%, #f5f7fa 100%);
+  padding-bottom: 4rem;
+  overflow-x: hidden;
+}
+
+/* Hero banner with elegant colors */
+.followed-hero-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 80px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title with sophisticated typography */
+.followed-page-title {
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 1rem !important;
+  text-shadow: 2px 2px 5px rgba(26, 35, 126, 0.4);
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+/* Subtitle with subtle elegance */
+.followed-page-subtitle {
+  font-size: 1.5rem !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  opacity: 0.9;
+  font-style: italic;
+  color: #d7dae0;
+}
+
+/* Cards container with preserved layout */
+.followed-cards-container {
+  padding: 0 2rem 4rem 2rem !important;
+  position: relative;
+  z-index: 2;
+  margin-top: -80px !important;
+  width: 100%;
+  max-width: 900px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Search container unchanged */
+.followed-search-container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Search input with refined colors */
+.followed-search-input {
+  max-width: 600px;
+  width: 100%;
+}
+
+.followed-search-input .MuiOutlinedInput-root {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  border: 2px solid rgba(26, 35, 126, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.followed-search-input .MuiOutlinedInput-root:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.followed-search-input .MuiOutlinedInput-input {
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  color: #1a237e;
+  font-weight: 500;
+}
+
+.followed-search-input .MuiInputLabel-root {
+  color: #5c6bc0;
+  font-weight: 600;
+}
+
+.followed-search-input .MuiOutlinedInput-notchedOutline {
+  border-color: transparent;
+}
+
+.followed-search-icon {
+  color: #5c6bc0;
+  margin-right: 0.5rem;
+  font-size: 1.5rem !important;
+}
+
+/* Loading and empty state with subtle colors */
+.followed-loading-text,
+.followed-empty-state {
+  font-size: 1.5rem;
+  color: #5c6bc0;
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* Dashboard cards layout unchanged */
+.followed-dashboard-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Plan card with elegant color adjustments */
+.followed-plan-card {
+  min-height: 350px;
+  border-radius: 20px !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(245, 247, 250, 0.95));
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #1a237e, #5c6bc0) 1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.7s ease-in;
+}
+
+.followed-plan-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(26, 35, 126, 0.2) !important;
+  border-image: linear-gradient(45deg, #5c6bc0, #3f51b5) 1;
+}
+
+/* Card content with preserved spacing */
+.followed-card-content {
+  padding: 2rem 1.5rem !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Icon wrapper with subtle colors */
+.followed-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #1a237e, #5c6bc0);
+  box-shadow: 0 4px 10px rgba(26, 35, 126, 0.3);
+}
+
+.followed-progress-card .followed-icon-wrapper {
+  background: linear-gradient(135deg, #5c6bc0, #3f51b5);
+}
+
+.followed-plan-card:hover .followed-icon-wrapper {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(26, 35, 126, 0.4);
+}
+
+.followed-card-icon {
+  font-size: 2.5rem !important;
+  color: #ffffff;
+}
+
+/* Card title with refined typography */
+.followed-card-title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  color: #1a237e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Card description with elegant colors */
+.followed-card-description {
+  font-size: 1.1rem !important;
+  color: #5c6bc0;
+  margin-bottom: 1rem !important;
+  line-height: 1.6 !important;
+  font-weight: 500;
+}
+
+.followed-card-description strong {
+  color: #1a237e;
+}
+
+/* Milestones section unchanged */
+.followed-milestones-section {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.followed-milestones-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Milestone item with subtle colors */
+.followed-milestone-item {
+  font-size: 1rem;
+  color: #5c6bc0;
+  padding: 0.5rem;
+  background: linear-gradient(45deg, rgba(26, 35, 126, 0.05), rgba(92, 107, 192, 0.05));
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.followed-milestone-item:hover {
+  transform: scale(1.02);
+}
+
+.followed-milestone-item::before {
+  content: '✨';
+  color: #1a237e;
+  margin-right: 0.5rem;
+}
+
+/* Materials section with new wrapper for consistency */
+.followed-materials-section {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.followed-materials-wrapper {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.followed-materials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.followed-material-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(26, 35, 126, 0.03);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #5c6bc0;
+  transition: background-color 0.2s ease;
+}
+
+.followed-material-item:hover {
+  background-color: rgba(26, 35, 126, 0.06);
+}
+
+.followed-material-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Action button with elegant colors */
+.followed-action-button {
+  padding: 8px 20px !important;
+  border-radius: 25px !important;
+  text-transform: uppercase !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: white !important;
+  background: linear-gradient(45deg, #1a237e, #5c6bc0) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.2);
+}
+
+.followed-action-button:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 4px 12px rgba(92, 107, 192, 0.3) !important;
+  background: linear-gradient(45deg, #5c6bc0, #3f51b5) !important;
+}
+
+/* No milestones or materials with subtle colors */
+.followed-no-milestones,
+.followed-no-materials {
+  font-size: 1rem;
+  color: #5c6bc0;
+  font-style: italic;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+}
+
+/* Media queries unchanged, only color adjustments */
+@media (max-width: 960px) {
+  .followed-hero-banner {
+    height: 300px;
+    margin-bottom: 60px;
+  }
+
+  .followed-cards-container {
+    margin-top: -60px !important;
+    padding: 0 1rem 3rem 1rem !important;
+  }
+
+  .followed-plan-card {
+    min-height: 300px;
+  }
+
+  .followed-page-title {
+    font-size: 2.5rem !important;
+  }
+
+  .followed-page-subtitle {
+    font-size: 1.2rem !important;
+  }
+
+  .followed-search-input {
+    max-width: 400px;
+  }
+
+  .followed-card-title {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .followed-hero-banner {
+    height: 250px;
+    margin-bottom: 40px;
+  }
+
+  .followed-cards-container {
+    margin-top: -40px !important;
+    padding: 0 0.5rem 2rem 0.5rem !important;
+  }
+
+  .followed-plan-card {
+    min-height: 280px;
+    margin: 0 0.3rem;
+  }
+
+  .followed-card-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .followed-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .followed-card-icon {
+    font-size: 2rem !important;
+  }
+
+  .followed-page-title {
+    font-size: 2rem !important;
+  }
+
+  .followed-search-input {
+    max-width: 300px;
+  }
+
+  .followed-card-title {
+    font-size: 1.6rem !important;
+  }
+
+  .followed-card-description {
+    font-size: 1rem !important;
+  }
+
+  .followed-action-button {
+    padding: 6px 16px !important;
+    font-size: 0.8rem !important;
+  }
+}

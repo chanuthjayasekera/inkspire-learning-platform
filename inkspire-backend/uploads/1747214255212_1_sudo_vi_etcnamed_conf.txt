@@ -1,0 +1,50 @@
+1.sudo vi /etc/named.conf
+
+2. zone "hostzone2054.csa.lk" IN {
+    type master;
+    file "/var/named/hostzone2054.csa.lk.zone";
+};
+
+zone "1.21.10.in-addr.arpa" IN {
+    type master;
+    file "/var/named/1.21.10.rev";
+};
+
+3.sudo vi /var/named/hostzone2054.csa.lk.zone
+
+4.$TTL 86400
+@   IN  SOA dnsserver.hostzone2054.csa.lk. root.hostzone2054.csa.lk. (
+            20250509    ; Serial
+            3600        ; Refresh
+            1800        ; Retry
+            604800      ; Expire
+            86400 )     ; Minimum TTL
+    IN  NS  dnsserver.hostzone2054.csa.lk.
+
+dnsserver   IN  A   10.22.1.2
+clientpc    IN  A   10.22.1.100
+
+5.sudo vi /var/named/1.21.10.rev
+
+6.$TTL 86400
+@   IN  SOA dnsserver.hostzone2054.csa.lk. root.hostzone2054.csa.lk. (
+            20250509    ; Serial
+            3600        ; Refresh
+            1800        ; Retry
+            604800      ; Expire
+            86400 )     ; Minimum TTL
+    IN  NS  dnsserver.hostzone2054.csa.lk.
+
+2   IN  PTR dnsserver.hostzone2054.csa.lk.
+100 IN  PTR clientpc.hostzone2054.csa.lk.
+
+7.sudo named-checkzone hostzone2054.csa.lk /var/named/hostzone2054.csa.lk.zone
+sudo named-checkzone 1.21.10.in-addr.arpa /var/named/1.21.10.rev
+
+8.sudo systemctl restart named
+sudo systemctl status named
+
+9.dig @10.0.1.2 dnsserver.hostzone2054.csa.lk
+dig @10.0.1.2 -x 10.21.1.2
+
+

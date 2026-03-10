@@ -1,0 +1,236 @@
+.header {
+  background: linear-gradient(to right, #1a237e, #0d47a1) !important;
+  color: white !important;
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.toolbar {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 4rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 100% !important;
+  min-height: 64px !important;
+}
+
+.logo-container {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  color: white !important;
+  gap: 8px !important;
+  height: 100% !important;
+}
+
+.logo-icon {
+  font-size: 32px !important;
+  color: white;
+}
+
+.logo-text {
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  color: white !important;
+  letter-spacing: 0.5px;
+  -webkit-text-fill-color: white !important;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.nav-button {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-transform: none !important;
+  padding: 6px 10px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  min-width: auto !important;
+}
+
+.nav-button:hover {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-button.active {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.nav-button .MuiButton-startIcon {
+  margin-right: 4px !important;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1.5rem;
+}
+
+.notification-icon {
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 8px !important;
+}
+
+.notification-icon:hover {
+  color: white !important;
+}
+
+.profile-button {
+  padding: 0 !important;
+}
+
+.user-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 1rem !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  transition: transform 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.profile-button:hover .user-avatar {
+  transform: scale(1.1);
+}
+
+.auth-buttons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  height: 40px !important;
+}
+
+.login-button, 
+.signup-button {
+  height: 36px !important;
+  min-width: 90px !important;
+  padding: 0 16px !important;
+  font-size: 0.875rem !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+}
+
+.login-button {
+  border-radius: 18px !important;
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.signup-button {
+  border-radius: 18px !important;
+  background-color: white !important;
+  color: #1a237e !important;
+}
+
+.menu-icon {
+  margin-right: 8px;
+  font-size: 20px !important;
+}
+
+/* Update menu styles to match theme */
+.MuiMenu-paper {
+  background-color: #1a237e !important;
+  color: white !important;
+}
+
+.MuiMenuItem-root {
+  color: white !important;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.MuiMenuItem-root .menu-icon {
+  color: white !important;
+}
+
+@media (max-width: 1200px) {
+  .toolbar {
+    padding: 0.75rem 2rem !important;
+  }
+  
+  .nav-button {
+    padding: 6px 8px !important;
+  }
+  
+  .user-avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .toolbar {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .user-actions {
+    margin-left: 0.5rem;
+  }
+
+  .login-button,
+  .signup-button {
+    padding: 6px 16px !important;
+    min-width: 80px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    padding: 0 1rem !important;
+  }
+
+  .auth-buttons {
+    gap: 0.5rem !important;
+  }
+
+  .login-button, 
+  .signup-button {
+    min-width: 80px !important;
+    padding: 0 12px !important;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 0.25rem;
+  }
+
+  .user-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-button, 
+  .signup-button {
+    min-width: 70px !important;
+    padding: 0 8px !important;
+  }
+}

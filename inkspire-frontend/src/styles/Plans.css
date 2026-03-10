@@ -1,0 +1,199 @@
+.plans-container {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 4rem 2rem;
+}
+
+.plans-grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.plan-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(26, 35, 126, 0.1);
+}
+
+.plan-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #1a237e !important;
+}
+
+.plan-visibility {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(26, 35, 126, 0.1);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.plan-visibility.public {
+  background: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+}
+
+.plan-visibility.private {
+  background: rgba(244, 67, 54, 0.1);
+  color: #d32f2f;
+}
+
+.plan-description {
+  color: #555;
+  margin-bottom: 2rem !important;
+  line-height: 1.6;
+}
+
+.milestones-section {
+  background: rgba(26, 35, 126, 0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.milestones-title {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: #1a237e;
+  margin-bottom: 1rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.milestone-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid #1a237e;
+  transition: transform 0.2s ease;
+}
+
+.milestone-item:hover {
+  transform: translateX(5px);
+}
+
+.milestone-item:last-child {
+  margin-bottom: 0;
+}
+
+.milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.milestone-title {
+  font-weight: 500 !important;
+  color: #1a237e;
+}
+
+.milestone-status {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+}
+
+.milestone-status.pending {
+  background: rgba(255, 152, 0, 0.1);
+  color: #f57c00;
+}
+
+.milestone-content {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.plan-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.materials-section {
+  background: rgba(26, 35, 126, 0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.materials-title {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: #1a237e;
+  margin-bottom: 1rem !important;
+}
+
+.material-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.material-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.material-button {
+  flex-grow: 1;
+  text-align: left;
+  text-transform: none !important;
+}
+
+.delete-material-button {
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.delete-material-button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .plans-container {
+    padding: 2rem 1rem;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+} 

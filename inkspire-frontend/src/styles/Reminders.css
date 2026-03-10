@@ -1,0 +1,102 @@
+.reminders-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.reminders-title {
+  color: #1a237e;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.reminders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reminder-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reminder-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-card.completed {
+  background-color: rgba(76, 175, 80, 0.05);
+  border-left: 4px solid #2e7d32;
+}
+
+.reminder-content {
+  flex-grow: 1;
+}
+
+.reminder-message {
+  color: #1a237e;
+  margin-bottom: 0.5rem;
+}
+
+.reminder-plan-title {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.reminder-due-date {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.reminder-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  width: fit-content;
+}
+
+.reminder-status.completed {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+}
+
+.reminder-status.pending {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #f57c00;
+}
+
+.reminder-status svg {
+  font-size: 1.2rem;
+}
+
+.delete-button {
+  color: #d32f2f;
+}
+
+.empty-reminder {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .reminders-container {
+    padding: 1rem;
+  }
+
+  .reminder-card {
+    padding: 1rem;
+  }
+} 

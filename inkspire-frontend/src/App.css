@@ -1,0 +1,290 @@
+/* src/App.css */
+:root {
+  --primary-color: #1976d2; /* MUI primary blue */
+  --secondary-color: #ff4081; /* MUI secondary pink */
+  --background-color: #f5f5f5; /* Light background for better contrast */
+  --surface-color: #ffffff; /* White surface color for a clean look */
+  --text-color: #212121; /* Dark text for better readability */
+  --text-secondary: #757575; /* Lighter gray for secondary text */
+  --error-color: #e53935; /* Soft red for errors */
+  --border-radius: 10px;
+  --spacing: 20px;
+  --button-radius: 6px;
+  --hover-color: #eeeeee; /* Subtle hover effect color */
+  --plan-bg-color: #e3f2fd; /* Soft blue background for plans */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Center vertically */
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Containers */
+.form-container, .plan-list, .reminders {
+  max-width: 800px;
+  margin: var(--spacing) auto;
+  padding: var(--spacing);
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Titles */
+.title {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing);
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* Error Popup (handled by Snackbar) */
+.MuiSnackbar-root {
+  z-index: 9999 !important; /* Ensure it’s on top */
+  top: 20px !important; /* Position near the top */
+  left: 50% !important;
+  transform: translateX(-50%); /* Center Snackbar horizontally */
+}
+
+/* Alert styles for error message */
+.MuiAlert-root {
+  font-size: 16px;
+  padding: 12px 24px;
+  background-color: var(--error-color); /* Match your error color */
+  color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs */
+.input-field {
+  margin-bottom: var(--spacing) !important;
+}
+.input-field .MuiInputBase-root {
+  background-color: #ffffff;
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+}
+.input-field .MuiInputLabel-root {
+  color: var(--text-secondary);
+}
+.input-field .MuiOutlinedInput-notchedOutline {
+  border-color: var(--text-secondary);
+}
+.input-field .Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color);
+}
+
+/* Buttons */
+.action-button, .submit-button {
+  margin: calc(var(--spacing) / 2) 0 !important;
+  padding: 12px 24px;
+  border-radius: var(--button-radius);
+  font-size: 16px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.submit-button {
+  background-color: var(--primary-color);
+}
+.submit-button:hover {
+  background-color: #1565c0;
+}
+.action-button {
+  background-color: var(--secondary-color);
+}
+.action-button:hover {
+  background-color: #d81b60;
+}
+
+/* Plan Item */
+.plan-item {
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+  background-color: var(--plan-bg-color); /* Soft blue background for plan items */
+  border-radius: var(--border-radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text-color);
+  font-weight: 500;
+  border: 1px solid #a6028b; /* Light blue border for a clean look */
+}
+.plan-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Plan List */
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing) 0;
+}
+.plan-list li {
+  padding: var(--spacing);
+  background-color: #ffffff; /* White background for plan list */
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 4px solid var(--primary-color); /* Subtle color indicator on the left */
+}
+.plan-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: var(--hover-color); /* Light hover effect */
+}
+
+/* Scrollable Edit View (unused for now, kept for reference) */
+.edit-view-container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  height: 70vh; /* Set the height for the edit view */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  padding: var(--spacing);
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.edit-view-container h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing);
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* Reminder Item */
+.reminder-item {
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+  background-color: #ffffff; /* White background for reminders */
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.reminder-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: var(--hover-color); /* Light hover effect */
+}
+
+/* Modal (Scrollable Edit View) */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh; /* Limit height to 80% of viewport */
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-color: var(--surface-color);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+}
+
+/* Checkbox */
+.checkbox .MuiCheckbox-root {
+  color: var(--text-secondary);
+}
+.checkbox .Mui-checked {
+  color: var(--primary-color);
+}
+
+/* Icon Buttons */
+.icon-button {
+  margin-left: calc(var(--spacing) / 2);
+  color: var(--primary-color);
+}
+.icon-button:hover {
+  color: var(--secondary-color);
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container adjustments */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Image styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Card styles */
+.MuiCard-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-5px);
+}
+
+.MuiCardContent-root {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Grid container spacing */
+.MuiGrid-container {
+  padding: 20px 0;
+}
+
+/* Hero banner adjustments */
+.hero-banner {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: white;
+  margin-bottom: 40px;
+}
+
+/* Keep your existing variables and other specific styles */
