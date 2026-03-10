@@ -6,27 +6,30 @@ The platform combines structured personal learning management with social intera
 
 ---
 
-## Platform Overview
+# Platform Overview
 
 Inkspire is built to support two major purposes:
 
-- **Learning Plan Management** – Users can create, manage, and track structured learning plans with milestones and reminders.
-- **Skill Sharing & Social Interaction** – Users can connect with others, follow profiles, and participate in a learning-focused community.
+### Learning Plan Management
+Users can create, manage, and track structured learning plans with milestones and reminders.
 
-The system follows a full-stack client-server architecture with a React frontend and a Spring Boot backend connected through REST APIs.
+### Skill Sharing & Social Interaction
+Users can connect with others, follow profiles, and participate in a learning-focused community.
+
+The system follows a full-stack client-server architecture with a **React frontend** and a **Spring Boot backend** connected through **REST APIs**.
 
 ---
 
-## Technology Stack
+# Technology Stack
 
-### Frontend
+## Frontend
 - React
 - JavaScript
 - Context API
 - CSS
 - REST API integration
 
-### Backend
+## Backend
 - Spring Boot
 - Java
 - Spring Security
@@ -34,15 +37,16 @@ The system follows a full-stack client-server architecture with a React frontend
 - OAuth2 Authentication
 - RESTful APIs
 
-### Database & Storage
-- Relational database support through Spring Data JPA
+## Database & Storage
+- MySQL
+- Spring Data JPA
 - Local file upload support
 
 ---
 
-## System Architecture
+# System Architecture
 
-```text
+```
 React Frontend
       |
       | REST API
@@ -50,23 +54,23 @@ React Frontend
 Spring Boot Backend
       |
       v
-Database
+MySQL Database
 ```
 
-The backend handles authentication, user management, learning plan logic, reminders, follow relationships, and platform-level security.
+The backend manages authentication, user management, learning plan logic, reminders, follow relationships, and overall platform security.
 
 ---
 
-## Core Features
+# Core Features
 
-### User Authentication
-Inkspire provides secure authentication and authorization features, including:
+## User Authentication
+Inkspire provides secure authentication and authorization features including:
 
 - User signup and login
 - JWT-based authentication
-- OAuth2 login support
+- OAuth2 login support (Google)
 - Protected routes for authenticated users
-- Forgot password flow
+- Forgot password functionality
 
 ---
 
@@ -86,7 +90,7 @@ Users can:
 
 ## Milestones & Progress Tracking
 
-Each learning plan can be broken into smaller milestones to support better tracking and progress visibility.
+Each learning plan can be divided into smaller milestones to support better tracking and progress visibility.
 
 This helps users:
 
@@ -104,20 +108,20 @@ Users can:
 
 - Create reminders for learning tasks
 - View upcoming reminders
-- Stay consistent with their study or skill development goals
+- Stay consistent with study or skill development goals
 
 ---
 
 ## User Profiles
 
-Each user has a profile area within the platform.
+Each user has a profile within the platform.
 
 Profile-related features include:
 
 - User identity and account management
 - Viewing personal information
 - Accessing personal learning activity
-- Managing one’s presence within the community
+- Managing presence within the community
 
 ---
 
@@ -128,116 +132,117 @@ Inkspire is not only a personal planner but also a social learning platform.
 Users can:
 
 - Follow other users
-- View followed plans
+- View followed learning plans
 - Explore other users in the system
 - Interact in a skill-sharing environment
 
-These features make the platform more collaborative and community-driven.
+These features help build a collaborative learning community.
 
 ---
 
 ## Skill Sharing Support
 
-Inkspire supports a skill-sharing concept where users can benefit from a learning-focused social environment.
+Inkspire supports a skill-sharing concept where users benefit from a learning-focused social ecosystem.
 
-This can include:
+Examples include:
 
-- Sharing learning-related knowledge
+- Sharing learning experiences
 - Following other learners
-- Exploring plans and learning journeys
+- Exploring learning journeys
 - Building a community around growth and collaboration
 
 ---
 
-## Frontend Structure
+# Frontend Structure
 
 The frontend is organized into reusable components and supporting modules.
 
-Main frontend areas include:
+### Authentication Components
+- Login
+- Signup
+- Forgot Password
 
-- **Authentication components**
-  - Login
-  - Signup
-  - Forgot Password
+### Core Components
+- Dashboard
+- Create Plan
+- Learning Plans
+- Followed Plans
+- Profile
+- Reminders
+- User List
+- Header / Footer
+- Private Route Handling
 
-- **Core components**
-  - Dashboard
-  - Create Plan
-  - Learning Plans
-  - Followed Plans
-  - Profile
-  - Reminders
-  - User List
-  - Header / Footer
-  - Private Route handling
+### Context Management
+- Authentication Context
+- Follow Context
+- Notification Context
 
-- **Context management**
-  - Authentication context
-  - Follow context
-  - Notification context
-
-- **Services and utilities**
-  - API handling
-  - Authentication service
-  - Validations
+### Services & Utilities
+- API handling
+- Authentication service
+- Form validations
 
 ---
 
-## Backend Structure
+# Backend Structure
 
 The backend is organized into modular packages.
 
-Main backend areas include:
+### Configuration
+- Security configuration
+- JWT authentication filter
+- JWT token provider
+- OAuth2 configuration
+- Web configuration
+- LocalDateTime deserialization support
 
-- **Configuration**
-  - Security configuration
-  - JWT authentication filter
-  - JWT token provider
-  - OAuth2 configuration
-  - Web configuration
-  - LocalDateTime deserialization support
+### Controllers
+- Authentication controller
+- Login controller
+- User controller
+- Learning plan controller
+- Root controller
+- Global error controller
 
-- **Controllers**
-  - Authentication controller
-  - Login controller
-  - User controller
-  - Learning plan controller
-  - Root controller
-  - Global error controller
+### Models
+- User
+- LearningPlan
+- Milestone
+- Reminder
+- UserFollow
 
-- **Models**
-  - User
-  - LearningPlan
-  - Milestone
-  - Reminder
-  - UserFollow
+### Repositories
+- User repository
+- Learning plan repository
+- Reminder repository
+- User follow repository
 
-- **Repositories**
-  - User repository
-  - Learning plan repository
-  - Reminder repository
-  - User follow repository
-
-- **Services**
-  - User service
-  - Learning plan service
-  - Service implementations
+### Services
+- User service
+- Learning plan service
+- Service implementations
 
 ---
 
-## File Upload Support
+# File Upload Support
 
-The backend contains an `uploads` directory for local file storage.
+The backend contains an **uploads** directory for storing uploaded files during development.
 
-Uploaded files are stored locally during development.
+Uploaded files are stored locally when running the application locally.
 
-For production deployment, cloud storage solutions such as Amazon S3 or Cloudinary are recommended.
+For production deployment, cloud storage services such as:
+
+- Amazon S3
+- Cloudinary
+
+are recommended.
 
 ---
 
-## Project Structure
+# Project Structure
 
-```text
+```
 INKSPIRE
 │
 ├── inkspire-backend
@@ -250,9 +255,13 @@ INKSPIRE
 │   │   ├── repository
 │   │   ├── service
 │   │   └── InkspireApplication.java
+│   │
 │   ├── src/main/resources
 │   │   └── application.properties
+│   │
 │   ├── uploads
+│   │   └── .gitkeep
+│   │
 │   ├── pom.xml
 │   └── mvnw
 │
@@ -267,6 +276,7 @@ INKSPIRE
 │   │   ├── utils
 │   │   ├── App.js
 │   │   └── index.js
+│   │
 │   ├── package.json
 │   └── package-lock.json
 │
@@ -275,58 +285,95 @@ INKSPIRE
 
 ---
 
-## Backend Setup
+# Backend Setup
 
-### Requirements
-- Java 17 or compatible Java version
+## Requirements
+
+- Java 17 or later
 - Maven
+- MySQL Server
 
-### Run the backend
+## Database Setup
 
-```bash
-cd inkspire-backend
-./mvnw spring-boot:run
+Create a MySQL database named:
+
+```
+inkspire
 ```
 
-If Maven Wrapper does not work, use:
+Example configuration in `application.properties`:
 
-```bash
-mvn spring-boot:run
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/inkspire
+spring.datasource.username=YOUR_DB_USERNAME
+spring.datasource.password=YOUR_DB_PASSWORD
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto=update
 ```
 
 ---
 
-## Frontend Setup
+## Run the Backend
 
-### Requirements
+```
+cd inkspire-backend
+./mvnw spring-boot:run
+```
+
+If Maven Wrapper does not work:
+
+```
+mvn spring-boot:run
+```
+
+The backend runs on:
+
+```
+http://localhost:8081
+```
+
+---
+
+# Frontend Setup
+
+## Requirements
+
 - Node.js
 - npm
 
-### Run the frontend
+## Run the Frontend
 
-```bash
+```
 cd inkspire-frontend
 npm install
 npm start
 ```
 
+The React application runs on:
+
+```
+http://localhost:3000
+```
+
 ---
 
-## Authentication & Security
+# Authentication & Security
 
-Inkspire uses modern authentication and security mechanisms, including:
+Inkspire uses modern authentication and security mechanisms including:
 
 - JWT-based authentication
 - Spring Security
-- OAuth2 login support
+- OAuth2 login (Google)
 - Protected frontend routes
-- Backend authorization handling
+- Backend authorization controls
 
-These help secure user accounts and sensitive actions within the system.
+These mechanisms help protect user accounts and secure sensitive operations.
 
 ---
 
-## Future Improvements
+# Future Improvements
 
 Potential future enhancements include:
 
@@ -336,19 +383,26 @@ Potential future enhancements include:
 - Plan collaboration between users
 - Cloud-based media storage
 - Email-based reminder delivery
-- Mobile-responsive enhancement
-- Production deployment with Docker and cloud hosting
+- Mobile responsive improvements
+- Docker-based deployment
+- Cloud hosting
 
 ---
 
-## Project Status
+# Project Status
 
-Inkspire is a full-stack learning plan management and skill sharing platform prototype that demonstrates authentication, structured planning, reminder management, user following features, and a social learning environment.
+Inkspire is a full-stack learning plan management and skill sharing platform prototype demonstrating:
 
-The platform can be extended into a more advanced community-driven learning ecosystem with richer collaboration and production-ready deployment features.
+- Authentication
+- Structured learning plan management
+- Reminder systems
+- User follow relationships
+- Social learning features
+
+The platform can be extended into a more advanced collaborative learning ecosystem with additional community-driven features and production-ready infrastructure.
 
 ---
 
-## Author
+# Author
 
-**Chanuth Jayasekera**
+Chanuth Jayasekera
